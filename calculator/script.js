@@ -22,6 +22,10 @@ function diviNum(x) {
     return result;
 }
 
+/*function f() {
+    document.getElementById("num").innerHTML = "Liczba";
+}*/
+
 function button(value) {
     switch(value) {
         case '+':
