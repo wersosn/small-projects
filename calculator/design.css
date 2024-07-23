@@ -47,8 +47,7 @@ button:hover {
     margin: 5px;
 }
 
-/*Ids:*/
-#result {
+.result {
     text-align: right;
     margin: 5px;
     background-color: rgb(40, 40, 66, 0.3);
@@ -59,18 +58,10 @@ button:hover {
     font-weight: bold;
 }
 
-#equal {
-    background-color: rgba(67, 36, 139, 0.5);
-}
-
-#equal:hover {
-    background-color: rgba(67, 36, 139);
-}
-
-#num {
+.num {
     background-color: rgba(53, 6, 114, 0.3);
 }
 
-#num:hover {
+.num:hover {
     background-color: rgb(70, 62, 92);
 }
