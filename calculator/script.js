@@ -60,7 +60,7 @@ function symbols(symbol) {
     }
 }
 
-//Function to handle strings:
+//Function to handle buffor:
 function numb(string) {
     if(buffor === '0') {
         buffor = string;
@@ -100,6 +100,7 @@ function f() {
     document.querySelector('.buttons').addEventListener('click', function(event) { click(event.target.innerText) });
 }
 
+//Start:
 f();
 
 //to be added - different way of displaying result etc.
