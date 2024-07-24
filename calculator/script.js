@@ -1,28 +1,35 @@
 //Variables:
 let result = 0, operator, equal;
-let buffor = "0";
+let buffor = "";
 const number = document.querySelector('.result');
 
 //Function to handle clicking buttons:
 function click(value) {
-    if(isNaN(value)) {
+    if(isNaN(value)) { //if value is not a number handle symbol
         symbols(value);
     }
-    else {
-        numb(value);
+    else { //else add value to the buffor
+        if(buffor === '0') {
+            buffor = value;
+        }
+        else {
+            buffor += value;
+        }
     }
     number.innerText = buffor;
 }
 
 //Function to read and handle symbols:
 function symbols(symbol) {
-    let numberValue = parseInt(buffor);
+    let numberValue = parseFloat(buffor);
     switch(symbol) {
+        //two numbers required:
         case '+':
-        case '−':
+        case '-':
         case '×':
         case '÷':
         case '%':
+            //buffor += `${symbol}`; - this is messing up math operations
             if(result === 0) {
                 result = numberValue;
             }
@@ -32,7 +39,41 @@ function symbols(symbol) {
             operator = symbol;
             buffor = '0';
             break;
+        case '.':
+            buffor = numberValue.toString() + '.';
+            break;
+        //one number required:
+        case 'x²':
+            buffor = Math.pow(numberValue, 2).toString();
+            break;
+        case '√x':
+            if(numberValue < 0) {
+                buffor = '0';
+            }
+            else {
+                buffor = Math.sqrt(numberValue).toString();
+            }
+            break;
+        case '1/x':
+            if(numberValue === 0) {
+                buffor = '0';
+            }
+            else {
+                buffor = (1/numberValue).toString();
+            }
+            break;
+        case '~':
+            if(buffor[0] === '-')
+            {
+                buffor = buffor.slice(1);
+            }
+            else {
+                buffor = '-' + numberValue.toString();
+            }
+            break;
+        //other options:
         case 'C':
+        case 'CE':
             buffor = '0';
             result = 0;
             break;
@@ -40,17 +81,17 @@ function symbols(symbol) {
             if(operator === null) {
                 return 0;
             }
-            equal = parseInt(buffor);
+            equal = parseFloat(buffor);
             calc(equal);
             operator = null;
             buffor = result.toString();
             break;
         case '←':
-            if(buffor.length < 1) {
+            if(buffor.length <= 1) {
                 buffor = '0';
             }
             else {
-                buffor.slice(0, buffor.length - 1);
+                buffor = buffor.slice(0, buffor.length - 1);
             }
             break;
         default:
@@ -60,23 +101,13 @@ function symbols(symbol) {
     }
 }
 
-//Function to handle buffor:
-function numb(string) {
-    if(buffor === '0') {
-        buffor = string;
-    }
-    else {
-        buffor += string;
-    }
-}
-
 //Function to calculate result:
 function calc(numberValue) {
     switch(operator) {
         case '+':
             result += numberValue;
             break;
-        case '−':
+        case '-':
             result -= numberValue;
             break;
         case '×':
@@ -88,7 +119,6 @@ function calc(numberValue) {
         case '%':
             result %= numberValue;
             break;
-        //to be added - other operators
         default:
             result = numberValue;
             break;
@@ -103,4 +133,5 @@ function f() {
 //Start:
 f();
 
-//to be added - different way of displaying result etc.
+//to be added:
+//displaying operators & displaying history above the result
