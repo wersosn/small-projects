@@ -14,8 +14,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 300px;
     height: inherit;
+    overflow-y: scroll;
 }
 
 button {
@@ -37,7 +37,7 @@ button:hover {
 /*Classes:*/
 .calc {
     grid-template-columns: auto auto auto auto;
-    background-color: rgb(255, 255, 255, 0.5);
+    background-color: rgba(250, 250, 250, 0.8);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 5px 5px 5px rgb(88, 87, 87);
@@ -47,7 +47,7 @@ button:hover {
     margin: 5px;
 }
 
-.result {
+.result{
     text-align: right;
     margin: 5px;
     background-color: rgb(40, 40, 66, 0.3);
@@ -64,4 +64,17 @@ button:hover {
 
 .num:hover {
     background-color: rgb(70, 62, 92);
+}
+
+.history {
+    text-align: right;
+    opacity: 0.6;
+}
+
+.waves {
+    background-image: url('waves.svg');
+    aspect-ratio: 960/460;
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
