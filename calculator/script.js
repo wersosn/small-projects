@@ -1,7 +1,8 @@
 //Variables:
 let result = 0, operator, equal;
-let buffor = "";
+let buffor = "", history = "";
 const number = document.querySelector('.result');
+const hist = document.querySelector('.history');
 
 //Function to handle clicking buttons:
 function click(value) {
@@ -17,6 +18,7 @@ function click(value) {
         }
     }
     number.innerText = buffor;
+    hist.innerText = history;
 }
 
 //Function to read and handle symbols:
@@ -29,7 +31,7 @@ function symbols(symbol) {
         case '×':
         case '÷':
         case '%':
-            //buffor += `${symbol}`; - this is messing up math operations
+            history = "";
             if(result === 0) {
                 result = numberValue;
             }
@@ -37,6 +39,7 @@ function symbols(symbol) {
                 calc(numberValue);
             }
             operator = symbol;
+            history += `${buffor} ${symbol}`;
             buffor = '0';
             break;
         case '.':
@@ -44,25 +47,33 @@ function symbols(symbol) {
             break;
         //one number required:
         case 'x²':
+            history = "";
             buffor = Math.pow(numberValue, 2).toString();
+            history += `sqrt(${numberValue})`;
             break;
         case '√x':
+            history = "";
             if(numberValue < 0) {
                 buffor = '0';
+                history += "Invalid number";
             }
             else {
                 buffor = Math.sqrt(numberValue).toString();
+                history += `√(${numberValue})`;
             }
             break;
         case '1/x':
+            history = "";
             if(numberValue === 0) {
                 buffor = '0';
+                history += "Invalid number";
             }
             else {
                 buffor = (1/numberValue).toString();
+                history += `1/(${numberValue})`;
             }
             break;
-        case '~':
+        case '+/-':
             if(buffor[0] === '-')
             {
                 buffor = buffor.slice(1);
@@ -76,6 +87,7 @@ function symbols(symbol) {
         case 'CE':
             buffor = '0';
             result = 0;
+            history = "";
             break;
         case '=':
             if(operator === null) {
@@ -84,19 +96,23 @@ function symbols(symbol) {
             equal = parseFloat(buffor);
             calc(equal);
             operator = null;
+            history += ` ${buffor} =`;
             buffor = result.toString();
             break;
         case '←':
             if(buffor.length <= 1) {
                 buffor = '0';
+                history = "";
             }
             else {
                 buffor = buffor.slice(0, buffor.length - 1);
+                history = "";
             }
             break;
         default:
             result = 0;
             buffor = '0';
+            history = "";
             break;
     }
 }
