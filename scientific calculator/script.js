@@ -114,6 +114,10 @@ function symbols(symbol) {
             buffor = Math.exp(numberValue);
             history += `exp(${numberValue})`;
             break;
+        case '10^x':
+            buffor = Math.pow(10, numberValue).toString();
+            history += `10^(${numberValue})`;
+            break;
         //other options:
         case 'C':
         case 'CE':
