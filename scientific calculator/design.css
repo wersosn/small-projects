@@ -1,0 +1,68 @@
+html {
+    margin: 0;
+    padding: 0;
+    cursor: url('cursor.png'), auto;
+}
+
+body {
+    background-color: #131120;
+    background-image: url('wp.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    overflow-y: scroll;
+    margin-top: 200px;
+    font-family: "Playwrite CZ", auto;
+}
+
+button {
+    text-align: center;
+    padding: 15px;
+    height: 60px;
+    width: 70px;
+    border: 1px solid rgba(110, 110, 119, 0.3);
+    border-radius: 5px;
+    margin: 2px;
+    font-weight: bold;
+    color: white;
+    background-color: #c2c2f8;
+    font-family: "Playwrite CZ", auto;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: white;
+    color:rgb(131, 81, 211);
+    cursor: url('pink-cursor.png'), auto;
+}
+
+/*Classes: */
+.result {
+    text-align: right;
+    color: rgb(131, 81, 211);
+    background-color: rgb(255, 255, 255, 0.5);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.calc {
+    grid-template-columns: auto auto auto auto;
+    background-image: linear-gradient(220deg, #f4d2ea, #c2c2f8, #a6d8f9, #89f2f5);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 5px 5px rgb(88, 87, 87);
+}
+
+.num {
+    background-color: #a6d8f9;
+}
+
+.history {
+    text-align: left;
+    opacity: 0.6;
+    color: rgb(131, 81, 211);
+}
