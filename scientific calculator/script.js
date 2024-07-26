@@ -45,8 +45,14 @@ function symbols(symbol) {
         case '.':
             buffor = numberValue.toString() + '.';
             break;
+        case '(':
+            buffor = '(';
+            break;
+        case ')':
+            buffor = ')';
+            break;
         //one number required:
-        case 'x²':
+        case 'x^2':
             history = "";
             buffor = Math.pow(numberValue, 2).toString();
             history += `sqrt(${numberValue})`;
@@ -82,6 +88,32 @@ function symbols(symbol) {
                 buffor = '-' + numberValue.toString();
             }
             break;
+        case 'π':
+            buffor = Math.PI;
+            break;
+        case 'e':
+            buffor = Math.E;
+            break;
+        case 'log':
+            history = "";
+            buffor = Math.log10(numberValue);
+            history += `log10(${numberValue})`;
+            break;
+        case 'ln':
+            history = "";
+            buffor = Math.log(numberValue);
+            history += `ln(${numberValue})`;
+            break;
+        case '|x|':
+            history = "";
+            buffor = Math.abs(numberValue);
+            history += `abs(${numberValue})`;
+            break;
+        case 'exp':
+            history = "";
+            buffor = Math.exp(numberValue);
+            history += `exp(${numberValue})`;
+            break;
         //other options:
         case 'C':
         case 'CE':
@@ -114,6 +146,7 @@ function symbols(symbol) {
             buffor = '0';
             history = "";
             break;
+        //to be added - other options and hidden layer of buttons
     }
 }
 
