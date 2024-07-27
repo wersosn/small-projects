@@ -31,7 +31,6 @@ function symbols(symbol) {
         case '×':
         case '÷':
         case '%':
-            history = "";
             if(result === 0) {
                 result = numberValue;
             }
@@ -45,17 +44,23 @@ function symbols(symbol) {
         case '.':
             buffor = numberValue.toString() + '.';
             break;
+        //brackets are not working properly, right now the result always will be NaN:
         case '(':
             buffor = '(';
             break;
         case ')':
-            buffor = ')';
+            buffor = numberValue.toString() + ')';
             break;
         //one number required:
         case 'x^2':
             history = "";
             buffor = Math.pow(numberValue, 2).toString();
-            history += `sqrt(${numberValue})`;
+            history += `(${numberValue})^2`;
+            break;
+        case 'x^3':
+            history = "";
+            buffor = Math.pow(numberValue, 3).toString();
+            history += `(${numberValue})^3`;
             break;
         case '√x':
             history = "";
@@ -118,7 +123,17 @@ function symbols(symbol) {
             buffor = Math.pow(10, numberValue).toString();
             history += `10^(${numberValue})`;
             break;
+        case 'n!':
+            buffor = recursiveN(numberValue);
+            history += `(${numberValue})!`;
+            break;
         //other options:
+        case 'x^y':
+            x = numberValue;
+            operator = symbol;
+            history = `${x}^`;
+            buffor = '0';
+            break;
         case 'C':
         case 'CE':
             buffor = '0';
@@ -129,6 +144,13 @@ function symbols(symbol) {
             if(operator === null) {
                 return 0;
             }
+            else if(operator === 'x^y') {
+                result = Math.pow(x, numberValue);
+                buffor = result.toString();
+                history += `${numberValue} = `;
+                operator = null;
+                break;
+            }
             equal = parseFloat(buffor);
             calc(equal);
             operator = null;
@@ -137,6 +159,10 @@ function symbols(symbol) {
             break;
         case '←':
             if(buffor.length <= 1) {
+                buffor = '0';
+                history = "";
+            }
+            else if(typeof buffor === 'string') {
                 buffor = '0';
                 history = "";
             }
@@ -150,7 +176,7 @@ function symbols(symbol) {
             buffor = '0';
             history = "";
             break;
-        //to be added - other options and hidden layer of buttons
+        //to be added - other options and maybe I'll fix the backets
     }
 }
 
@@ -175,6 +201,48 @@ function calc(numberValue) {
         default:
             result = numberValue;
             break;
+    }
+}
+
+//Function to handle n!:
+function recursiveN(value) {
+    if(value < 0) {
+        return 'Invalid number';
+    }
+    else if(value === 0 || value === 1) {
+        return 1;
+    }
+    else {
+        return value * recursiveN(value - 1);
+    }
+}
+
+//Functions that change the first column:
+function changeColumn() {
+    let hidden = document.getElementsByClassName('hidden');
+    for (let i = 0; i < hidden.length; i++) {
+        hidden[i].style.visibility = 'visible';
+        hidden[i].style.display = 'inline';
+
+    }
+    let first = document.getElementsByClassName('first');
+    for (let i = 0; i < first.length; i++) {
+        first[i].style.visibility = 'hidden';
+        first[i].style.display = 'none';
+    }
+}
+
+function changeColumn2() {
+    let first = document.getElementsByClassName('first');
+    for (let i = 0; i < first.length; i++) {
+        first[i].style.visibility = 'visible';
+        first[i].style.display = 'inline';
+
+    }
+    let hidden = document.getElementsByClassName('hidden');
+    for (let i = 0; i < hidden.length; i++) {
+        hidden[i].style.visibility = 'hidden';
+        hidden[i].style.display = 'none';
     }
 }
 

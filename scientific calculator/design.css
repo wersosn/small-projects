@@ -6,7 +6,7 @@ html {
 
 body {
     background-color: #131120;
-    background-image: url('wp.svg');
+   /*background-image: url('wp.svg');*/
     background-repeat: no-repeat;
     background-size: cover;
     color: black;
@@ -50,7 +50,7 @@ button:hover {
 }
 
 .calc {
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(5, auto);
     background-image: linear-gradient(220deg, #f4d2ea, #c2c2f8, #a6d8f9, #89f2f5);
     border-radius: 10px;
     padding: 20px;
@@ -66,3 +66,19 @@ button:hover {
     opacity: 0.6;
     color: rgb(131, 81, 211);
 }
+
+.hidden {
+    visibility: hidden;
+    display: none;
+}
+
+.first {
+    visibility: visible;
+    display: inline;
+}
+
+.layer:active {
+    background-color: #c2c2f8;
+}
+
+
