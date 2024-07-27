@@ -1,16 +1,16 @@
 //Variables:
-let result = 0, operator, equal;
+let result = 0, operator, x, y, z;
 let buffor = "", history = "";
 const number = document.querySelector('.result');
 const hist = document.querySelector('.history');
 
 //Function to handle clicking buttons:
 function click(value) {
-    if(isNaN(value)) { //if value is not a number handle symbol
+    if (isNaN(value)) { //if value is not a number handle symbol
         symbols(value);
     }
     else { //else add value to the buffor
-        if(buffor === '0') {
+        if (buffor === '0') {
             buffor = value;
         }
         else {
@@ -24,14 +24,14 @@ function click(value) {
 //Function to read and handle symbols:
 function symbols(symbol) {
     let numberValue = parseFloat(buffor);
-    switch(symbol) {
+    switch (symbol) {
         //two numbers required:
         case '+':
         case '-':
         case '×':
         case '÷':
         case '%':
-            if(result === 0) {
+            if (result === 0) {
                 result = numberValue;
             }
             else {
@@ -44,13 +44,25 @@ function symbols(symbol) {
         case '.':
             buffor = numberValue.toString() + '.';
             break;
-        //brackets are not working properly, right now the result always will be NaN:
-        case '(':
-            buffor = '(';
+        case 'x^y':
+            x = numberValue;
+            operator = symbol;
+            history = `${x}^`;
+            buffor = '0';
             break;
-        case ')':
-            buffor = numberValue.toString() + ')';
+        case 'y√x':
+            y = numberValue;
+            operator = symbol;
+            history = `${y} yroot `;
+            buffor = '0';
             break;
+        case 'logy_x':
+            z = numberValue;
+            operator = symbol;
+            history = `${z} log base `;
+            buffor = '0';
+            break;
+
         //one number required:
         case 'x^2':
             history = "";
@@ -64,7 +76,7 @@ function symbols(symbol) {
             break;
         case '√x':
             history = "";
-            if(numberValue < 0) {
+            if (numberValue < 0) {
                 buffor = '0';
                 history += "Invalid number";
             }
@@ -73,31 +85,35 @@ function symbols(symbol) {
                 history += `√(${numberValue})`;
             }
             break;
-        case '1/x':
+        case '∛x':
             history = "";
-            if(numberValue === 0) {
+            if (numberValue < 0) {
                 buffor = '0';
                 history += "Invalid number";
             }
             else {
-                buffor = (1/numberValue).toString();
+                buffor = Math.cbrt(numberValue).toString();
+                history += `∛(${numberValue})`;
+            }
+            break;
+        case '1/x':
+            history = "";
+            if (numberValue === 0) {
+                buffor = '0';
+                history += "Invalid number";
+            }
+            else {
+                buffor = (1 / numberValue).toString();
                 history += `1/(${numberValue})`;
             }
             break;
         case '+/-':
-            if(buffor[0] === '-')
-            {
+            if (buffor[0] === '-') {
                 buffor = buffor.slice(1);
             }
             else {
                 buffor = '-' + numberValue.toString();
             }
-            break;
-        case 'π':
-            buffor = Math.PI;
-            break;
-        case 'e':
-            buffor = Math.E;
             break;
         case 'log':
             history = "";
@@ -110,7 +126,6 @@ function symbols(symbol) {
             history += `ln(${numberValue})`;
             break;
         case '|x|':
-            history = "";
             buffor = Math.abs(numberValue);
             history += `abs(${numberValue})`;
             break;
@@ -123,16 +138,25 @@ function symbols(symbol) {
             buffor = Math.pow(10, numberValue).toString();
             history += `10^(${numberValue})`;
             break;
+        case '2^x':
+            buffor = Math.pow(2, numberValue).toString();
+            history += `2^(${numberValue})`;
+            break;
+        case 'e^x':
+            buffor = Math.pow(Math.E, numberValue).toString();
+            history += `e^(${numberValue})`;
+            break;
         case 'n!':
             buffor = recursiveN(numberValue);
             history += `(${numberValue})!`;
             break;
+
         //other options:
-        case 'x^y':
-            x = numberValue;
-            operator = symbol;
-            history = `${x}^`;
-            buffor = '0';
+        case 'π':
+            buffor = Math.PI;
+            break;
+        case 'e':
+            buffor = Math.E;
             break;
         case 'C':
         case 'CE':
@@ -141,28 +165,41 @@ function symbols(symbol) {
             history = "";
             break;
         case '=':
-            if(operator === null) {
+            if (operator === null) {
                 return 0;
             }
-            else if(operator === 'x^y') {
+            else if (operator === 'x^y') {
                 result = Math.pow(x, numberValue);
                 buffor = result.toString();
                 history += `${numberValue} = `;
                 operator = null;
                 break;
             }
-            equal = parseFloat(buffor);
-            calc(equal);
+            else if (operator === 'y√x') {
+                result = Math.pow(y, 1 / numberValue);
+                buffor = result.toString();
+                history += `${numberValue} = `;
+                operator = null;
+                break;
+            }
+            else if (operator === 'logy_x') {
+                result = Math.log(z) / Math.log(numberValue);
+                buffor = result.toString();
+                history += `${numberValue} = `;
+                operator = null;
+                break;
+            }
+            calc(parseFloat(buffor));
             operator = null;
             history += ` ${buffor} =`;
             buffor = result.toString();
             break;
         case '←':
-            if(buffor.length <= 1) {
+            if (buffor.length <= 1) {
                 buffor = '0';
                 history = "";
             }
-            else if(typeof buffor === 'string') {
+            else if (typeof buffor === 'string') {
                 buffor = '0';
                 history = "";
             }
@@ -171,18 +208,26 @@ function symbols(symbol) {
                 history = "";
             }
             break;
-        default:
-            result = 0;
-            buffor = '0';
-            history = "";
+
+        //brackets don't work properly, the result will always be NaN:
+        case '(':
+            buffor = '(';
             break;
-        //to be added - other options and maybe I'll fix the backets
+        case ')':
+            buffor = numberValue.toString() + ')';
+            break;
+        default:
+            if(buffor === "") {
+                result = 0;
+                buffor = '0';
+            }
+            break;
     }
 }
 
 //Function to calculate result:
 function calc(numberValue) {
-    switch(operator) {
+    switch (operator) {
         case '+':
             result += numberValue;
             break;
@@ -206,10 +251,10 @@ function calc(numberValue) {
 
 //Function to handle n!:
 function recursiveN(value) {
-    if(value < 0) {
+    if (value < 0) {
         return 'Invalid number';
     }
-    else if(value === 0 || value === 1) {
+    else if (value === 0 || value === 1) {
         return 1;
     }
     else {
@@ -248,7 +293,7 @@ function changeColumn2() {
 
 //Initialization of the function:
 function f() {
-    document.querySelector('.buttons').addEventListener('click', function(event) { click(event.target.innerText) });
+    document.querySelector('.buttons').addEventListener('click', function (event) { click(event.target.innerText) });
 }
 
 //Start:

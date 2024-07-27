@@ -6,9 +6,6 @@ html {
 
 body {
     background-color: #131120;
-   /*background-image: url('wp.svg');*/
-    background-repeat: no-repeat;
-    background-size: cover;
     color: black;
     display: flex;
     justify-content: center;
