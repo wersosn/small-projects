@@ -158,7 +158,7 @@ function symbols(symbol) {
         case 'e':
             buffor = Math.E;
             break;
-        case 'C':
+        case 'C': 
             buffor = '0';
             result = 0;
             history = "";
