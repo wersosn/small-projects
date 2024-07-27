@@ -159,7 +159,6 @@ function symbols(symbol) {
             buffor = Math.E;
             break;
         case 'C':
-        case 'CE':
             buffor = '0';
             result = 0;
             history = "";
