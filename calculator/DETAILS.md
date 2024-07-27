@@ -11,5 +11,4 @@ Simple, just to start somewhere.
 * vanilla JavaScript
 
 ## Inspiration
-This app is inspired by Calculator App Coding by AsmrProj on YouTube:
-(#https://www.youtube.com/watch?v=sBJmRD7kNTk&list=PLLayNHckknFhTF84rl4Li7eZzUHZxxAfo&index=5)
+This app is inspired by Calculator App Coding by AsmrProj on YouTube: [Video](https://www.youtube.com/watch?v=sBJmRD7kNTk&list=PLLayNHckknFhTF84rl4Li7eZzUHZxxAfo&index=5)
