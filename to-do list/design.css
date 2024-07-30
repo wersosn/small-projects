@@ -1,0 +1,15 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: azure;
+}
+.add {
+    display: none;
+}
+.details {
+    background: none;
+    border: 1px solid black;
+    width: auto;
+}
