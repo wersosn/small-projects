@@ -8,7 +8,7 @@ Simple, just to start somewhere.
 ## Technologies
 * HTML5
 * CSS3
-* vanilla JavaScript
+* JavaScript
 
 ## Inspiration
 This app is inspired by Calculator App Coding by AsmrProj on YouTube: [Video link](https://www.youtube.com/watch?v=sBJmRD7kNTk&list=PLLayNHckknFhTF84rl4Li7eZzUHZxxAfo&index=5)
