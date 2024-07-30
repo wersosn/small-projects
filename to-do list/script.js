@@ -2,8 +2,12 @@
 let tab = [];
 let number = 1;
 
-//Showing and hiding the 'add new task' form:
+//Showing and hiding elements:
 function showAdd() {
+    let add = document.getElementById('main');
+    add.style.display = 'none';
+    let list = document.getElementById('list');
+    list.style.display = 'none';
     let hidden = document.getElementsByClassName('add');
     for(let i=0; i<hidden.length; i++) {
         hidden[i].style.display = 'inline';
@@ -11,19 +15,23 @@ function showAdd() {
 }
 
 function hideAdd() {
+    let add = document.getElementById('main');
+    add.style.display = 'inline';
+    let list = document.getElementById('list');
+    list.style.display = 'inline';
     let hidden = document.getElementsByClassName('add');
     for(let i=0; i<hidden.length; i++) {
         hidden[i].style.display = 'none';
     }
 }
 
-function symbols(value) {
-    switch(value) {
-        case '+':
-            addTask();
-            break;
-        default:
-            break;
+function showDetails(idx) {
+    const d = document.getElementById(`details-${idx}`);
+    if(d.style.display === 'none') {
+        d.style.display = 'inline';
+    }
+    else {
+        d.style.display = 'none';
     }
 }
 
@@ -63,14 +71,17 @@ function displayTasks() {
         const t = document.createElement('p');
         t.innerHTML = `<input type="checkbox" onclick="completedTask(${task.id}, this.checked)" 
         ${task.completion ? 'checked' : ''}>
-        ${task.id}. ${task.title}`;   
-        //<button class="details" onclick="showDetails()">A</button>`;
+        ${task.id}. ${task.title}
+        <button class="details" onclick="showDetails(${task.id})">
+        <img src="/to-do list/images/3dots2.png"></button>
+        <button class="details" onclick="deleteTask(${task.id})">
+        <img src="/to-do list/images/trashcan2.png" alt="Delete"></button><br>
+        <div id="details-${task.id}" style="display: none;">
+           Content: ${task.content}<br>
+           Deadline: ${task.date}<br>
+        </div>`;   
         display.appendChild(t);
     });
-}
-
-function showDetails() {
-    //todo
 }
 
 document.getElementById("addingTask").addEventListener('submit', function (event) {
@@ -83,10 +94,3 @@ document.getElementById("addingTask").addEventListener('submit', function (event
 });
 
 displayTasks();
-
-/*for later: 
-t.innerHTML = `<input type="checkbox" onclick="completedTask(${task.id}, this.checked)" 
-        ${task.completion ? 'checked' : ''}>
-        ${task.title}<br>
-        ${task.content}<br>${task.date}
-        <button onclick="deleteTask(${task.id})">Delete</button><br>`;*/

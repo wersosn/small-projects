@@ -1,15 +1,64 @@
 html {
     margin: 0;
     padding: 0;
+    font-family: "Open Sans", sans-serif;
+    cursor: url('/to-do list/images/cursor2.png'), auto;
 }
+
+button:hover {
+    cursor: url('/to-do list/images/cursor2.png'), auto;
+}
+
 body {
-    background-color: azure;
+    background-color: #0E1122;
+    color: #C71B52;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 200px;
 }
-.add {
-    display: none;
-}
-.details {
-    background: none;
-    border: 1px solid black;
+
+img {
     width: auto;
+    height: auto;
+}
+
+input {
+    border: 1px solid rgb(199, 27, 82, 0.5);
+    border-radius: 5px;
+    background-color: rgb(199, 27, 82, 0.5);
+    accent-color: #C71B52;
+}
+
+.app {
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgb(156, 25, 87);
+    padding: 20px;
+}
+
+.title {
+    font-size: 50px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.details {
+    width: auto;
+    border: 1px solid rgb(145, 145, 145);
+    border-radius: 5px;
+    padding: 5px;
+    background: none;
+}
+
+.details:hover {
+    background-color: rgb(199, 27, 82, 0.5);
+}
+
+.waves {
+    background-image: url('/to-do list/images/Curve\ Line.svg');
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
