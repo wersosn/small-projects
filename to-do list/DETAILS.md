@@ -1,4 +1,4 @@
-## To-do lisst
+## To-do list
 _30.07.2024-??_
 
 ## General info
