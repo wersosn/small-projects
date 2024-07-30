@@ -1,0 +1,81 @@
+<!DOCTYPE html> <!DOCTYPE html>
+<html>
+
+<head>
+    <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="design.css">
+    <link rel="icon" type="image/x-icon" href="/scientific calculator/images/lab.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+CZ:wght@100..400&display=swap" rel="stylesheet">
+    <title>Scientific calculator</title>
+</head>
+<body>
+    <div class="calc">
+        <section class="history"></section>
+        <section class="result">0</section>
+        <br>
+        <section class="buttons">
+            <div class="firstRow">
+                <button class="first" onclick="changeColumn()">2nd</button>
+                <button class="hidden" style="background-color: #7878ac;" onclick="changeColumn2()">2nd</button>
+                <button class="symbol">π</button>
+                <button class="symbol">e</button>
+                <button class="symbol">C</button>
+                <button class="symbol">←</button>
+            </div>
+            <div class="secondRow">
+                <button class="first">x^2</button>
+                <button class="hidden">x^3</button>
+                <button class="symbol">1/x</button>
+                <button class="symbol">|x|</button>
+                <button class="symbol">exp</button>
+                <button class="symbol">%</button>
+            </div>
+            <div class="thirdRow">
+                <button class="symbol first">√x</button>
+                <button class="symbol hidden">∛x</button>
+                <button class="symbol">(</button>
+                <button class="symbol">)</button>
+                <button class="symbol">n!</button>
+                <button class="symbol">÷</button>
+            </div>
+            <div class="fourthRow">
+                <button class="symbol first">x^y</button>
+                <button class="symbol hidden">y√x</button>
+                <button class="num">7</button>
+                <button class="num">8</button>
+                <button class="num">9</button>
+                <button class="symbol">×</button>
+            </div>
+            <div class="fifthRow">
+                <button class="symbol first">10^x</button>
+                <button class="symbol hidden">2^x</button>
+                <button class="num">4</button>
+                <button class="num">5</button>
+                <button class="num">6</button>
+                <button class="symbol">-</button>
+            </div>
+            <div class="sixthRow">
+                <button class="symbol first">log</button>
+                <button class="symbol hidden">logy_x</button>
+                <button class="num">1</button>
+                <button class="num">2</button>
+                <button class="num">3</button>
+                <button class="symbol">+</button>
+            </div>
+            <div class="seventhRow">
+                <button class="symbol first">ln</button>
+                <button class="symbol hidden">e^x</button>
+                <button class="symbol">+/-</button>
+                <button class="num">0</button>
+                <button class="comma">.</button>
+                <button class="symbol">=</button>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
