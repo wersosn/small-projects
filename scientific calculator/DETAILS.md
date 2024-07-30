@@ -9,4 +9,4 @@ Perhaps I'll come back to this project later and fix this problem.
 ## Technologies
 * HTML5
 * CSS3
-* vanilla JavaScript
+* JavaScript
