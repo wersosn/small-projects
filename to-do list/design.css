@@ -5,6 +5,12 @@ html {
     cursor: url('/to-do list/images/cursor2.png'), auto;
 }
 
+button {
+    background-color: #ecb2c4;
+    border: 1px solid  #c9164e;
+    border-radius: 5px;
+}
+
 button:hover {
     cursor: url('/to-do list/images/cursor2.png'), auto;
 }
