@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="design.css">
+    <title>To do app</title>
+</head>
+
+<body>
+    <h2>To-do list</h2>
+    <p>Add task: <button onclick="showAdd()">+</button></p>
+    <div class="add">
+        <h2>Here you can add desired task: </h2>
+        <form id="addingTask" method="post">
+            <p>Title: <input type="text" id="title" required></p>
+            <p>Content: <input type="text" id="content"></p>
+            <p>Deadline: <input type="date" id="date"></p>
+            <button type="submit" onclick="hideAdd()">Submit</button>
+        </form>
+    </div>
+    <p>Your list of tasks:</p>
+    <p id="demo"></p>
+</body>
+</html>
