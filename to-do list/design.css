@@ -2,18 +2,18 @@ html {
     margin: 0;
     padding: 0;
     font-family: "Open Sans", sans-serif;
-    cursor: url('/to-do list/images/cursor2.png'), auto;
+    /*cursor: url('/to-do list/images/cursor2.png'), auto;*/
 }
 
 button {
     background-color: #ecb2c4;
-    border: 1px solid  #c9164e;
-    border-radius: 5px;
+    border: none;
+    border-radius: 3px;
     color: black;
 }
 
 button:hover {
-    cursor: url('/to-do list/images/cursor2.png'), auto;
+    background-color: #96143d;/
 }
 
 body {
@@ -32,40 +32,79 @@ img {
 }
 
 input {
-    border: 1px solid rgb(199, 27, 82, 0.5);
+    border: 2px solid rgb(199, 27, 82, 0.5);
     border-radius: 5px;
     background-color: rgb(199, 27, 82, 0.5);
     accent-color: #C71B52;
 }
 
+.add {
+    text-align: left;
+}
+
+.add input {
+    float: right;
+}
+
 .app {
-    background-color: rgb(255, 255, 255, 0.7);
+    background-color: rgb(207, 200, 200);
     border-radius: 10px;
     box-shadow: 5px 5px 5px rgb(156, 25, 87);
-    padding: 20px;
+    padding: 25px;
+}
+
+.main {
+    background-color: #e08aa5;
+    border: 1px solid rgb(207, 200, 200);
+    border-radius: 5px;
+    text-align: left;
+    padding-left: 10px;
+    margin-top: -30px;
+}
+
+.main button {
+    float: right;
+    height: 22px;
+    width: 30px;
+}
+
+.dots {
+    width: 30px;
+    height: 30px;
+    background-color: #ecb2c4;
+    border: none;
+    border-radius: 5px;
+}
+
+.dots:hover .trash:hover {
+    background-color: rgb(199, 27, 82, 0.5);
 }
 
 .title {
     font-size: 50px;
     border-radius: 20px;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: -3px;
+    color: transparent;
+    -webkit-text-stroke: 2px #C71B52;
 }
 
-.details {
-    width: auto;
-    border: 1px solid rgb(145, 145, 145);
+#element {
+    background-color: #e08aa5;
+    border: 1px solid rgb(207, 200, 200);
     border-radius: 5px;
-    padding: 5px;
-    background: none;
-}
-
-.details:hover {
-    background-color: rgb(199, 27, 82, 0.5);
+    padding-left: 10px;
+    text-align: left;
 }
 
 .waves {
     background-image: url('/to-do list/images/Curve\ Line.svg');
-    background-position: top;
+    background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
 }

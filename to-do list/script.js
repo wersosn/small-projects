@@ -4,10 +4,6 @@ let number = 1;
 
 //Showing and hiding elements:
 function showAdd() {
-    let add = document.getElementById('main');
-    add.style.display = 'none';
-    let list = document.getElementById('list');
-    list.style.display = 'none';
     let hidden = document.getElementsByClassName('add');
     for(let i=0; i<hidden.length; i++) {
         hidden[i].style.display = 'inline';
@@ -15,10 +11,6 @@ function showAdd() {
 }
 
 function hideAdd() {
-    let add = document.getElementById('main');
-    add.style.display = 'inline';
-    let list = document.getElementById('list');
-    list.style.display = 'inline';
     let hidden = document.getElementsByClassName('add');
     for(let i=0; i<hidden.length; i++) {
         hidden[i].style.display = 'none';
@@ -54,14 +46,6 @@ function deleteTask(idx) {
     displayTasks();
 }
 
-//Function for checking task completion:
-function completedTask(idx) {
-    tab = tab.find(task => task.id === idx);
-    if(task) {
-        task.completion = isChecked;
-        displayTasks();
-    }
-}
 
 //Function displaying a list of tasks:
 function displayTasks() {
@@ -69,16 +53,16 @@ function displayTasks() {
     display.innerHTML = '';
     tab.forEach(task => {
         const t = document.createElement('p');
-        t.innerHTML = `<input type="checkbox" onclick="completedTask(${task.id}, this.checked)" 
-        ${task.completion ? 'checked' : ''}>
-        ${task.id}. ${task.title}
-        <button class="details" onclick="showDetails(${task.id})">
-        <img src="/to-do list/images/3dots2.png"></button>
-        <button class="details" onclick="deleteTask(${task.id})">
-        <img src="/to-do list/images/trashcan2.png" alt="Delete"></button><br>
-        <div id="details-${task.id}" style="display: none;">
-           Content: ${task.content}<br>
-           Deadline: ${task.date}<br>
+        t.innerHTML = `<div id="element">
+        <input type="checkbox"> ${task.title}
+            <button class="dots" onclick="showDetails(${task.id})">
+            <img src="/to-do list/images/3dots.png"></button>
+            <button class="dots" onclick="deleteTask(${task.id})">
+            <img src="/to-do list/images/trash.png" alt="Delete"></button><br>
+            <div id="details-${task.id}" style="display: none;">
+                Notes: ${task.content}<br>
+                Deadline: ${task.date}<br>
+            </div>
         </div>`;   
         display.appendChild(t);
     });
@@ -94,3 +78,4 @@ document.getElementById("addingTask").addEventListener('submit', function (event
 });
 
 displayTasks();
+
