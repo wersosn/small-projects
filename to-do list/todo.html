@@ -14,23 +14,22 @@
 
 <body class="waves">
     <div class="app">
-        <h1 class="title">To-do list</h1>
-        <p id="main">Add task: <button onclick="showAdd()">+</button></p>
-        <div class="add" style="display:none;">
-            <h3>Here you can add desired task: </h3>
-            <form id="addingTask" method="post">
-                <p>Title: <input type="text" id="title" required></p>
-                <p>Content: <input type="text" id="content"></p>
+        <p class="title">To-do list</p>
+        <p class="main">Click '+' to add your task <button onclick="showAdd()">+</button></p>
+        <form id="addingTask" method="post">
+            <div class="add" style="display:none;">
+                <p>Name: <input type="text" id="title" required></p>
+                <p>Notes: <input type="text" id="content"></p>
                 <p>Deadline: <input type="date" id="date"></p>
-                <button type="submit" onclick="hideAdd()">Submit</button>
-            </form>
-        </div>
-        <div id="list">
-            <p>Your list of tasks:</p>
-            <p id="demo"></p>
+                <button type="submit" onclick="hideAdd()">Add</button>
+            </div>
+        </form>
 
+        <div id="list">
+            <p id="demo"></p>
             <p style="visibility:hidden;"></p>
         </div>
     </div>
 </body>
 </html>
+
