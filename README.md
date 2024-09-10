@@ -24,7 +24,7 @@ I want to start with the basics before I start a big, personal project. I'll see
 
 #### 4. [Advanced To-do list](/to-do%20list) - _10.09.2024 - ??_
   **Notes:**  Yeah, I'm back with another to-do list. This time with more options and an actual framework - React. 
-  I'll update these notes as the project progresses.
+  I'll update these notes as the project progresses.  
   **Tech stack:** HTML, CSS, JavaScript, React + Vite
     
 
