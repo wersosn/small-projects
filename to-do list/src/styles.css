@@ -1,0 +1,68 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #191919;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    accent-color: #821bc7;
+}
+
+/* Classes: */
+.header {
+    text-align: center;
+    background-image: url("./assets/inazuma.jpg");
+}
+
+.newTask {
+    border: 3px solid white;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.category {
+    background-color: rgba(107, 51, 160, 0.781);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 5px 5px rgb(88, 87, 87);
+}
+
+.list {
+    background-color: blueviolet;
+    border-radius: 5px;
+}
+
+/* Buttons: */
+.task-btn {
+    background-color: blueviolet;
+    margin: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.extra {
+    background-color: transparent;
+    border: none;
+    color: gray;
+}
+
+.edit {
+    background-color: blueviolet;
+    margin: 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.delete {
+    background-color: blueviolet;
+    margin: 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+}

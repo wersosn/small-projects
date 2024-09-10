@@ -56,9 +56,9 @@ function displayTasks() {
         t.innerHTML = `<div id="element">
         <input type="checkbox"> ${task.title}
             <button class="dots" onclick="showDetails(${task.id})">
-            <img src="/to-do list/images/3dots.png"></button>
+            <img src="/basic to-do list/images/3dots.png"></button>
             <button class="dots" onclick="deleteTask(${task.id})">
-            <img src="/to-do list/images/trash.png" alt="Delete"></button><br>
+            <img src="/basic to-do list/images/trash.png" alt="Delete"></button><br>
             <div id="details-${task.id}" style="display: none;">
                 Notes: ${task.content}<br>
                 Deadline: ${task.date}<br>
