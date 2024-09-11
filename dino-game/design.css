@@ -1,0 +1,49 @@
+html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game {
+    width: 700px;
+    height: 340px;
+    border: 2px solid black;
+    background-image: url('backgroud.jpg');
+}
+
+#character {
+    width: 90px;
+    height: 90px;
+    background-image: url("dino.png");
+    position: relative;
+    top: 240px;
+    left: 600px;
+}
+
+.animation {
+    animation: d 1s;
+}
+
+#rock {
+    width: 76px;
+    height: 60px;
+    background-image: url("rock.png");
+    position: relative;
+    top: 160px;
+    left: 40px;
+    animation: r 1s;
+}
+
+@keyframes r {
+    0% { left: 40px; }
+    100% { left: 600px; }
+}
+
+@keyframes d {
+    0% { top: 240px; }
+    30% { top: 180px; }
+    60% { top: 180px; }
+    100% { top: 240px; }
+}
