@@ -27,6 +27,9 @@ I want to start with the basics before I start a big, personal project. I'll see
   I'll update these notes as the project progresses.  
   **Tech stack:** HTML, CSS, JavaScript, React + Vite
     
+#### 5. [Dino minigame](/dino-game) - _11.09.2024 - ??_
+  **Notes:**  Minigame   
+  **Tech stack:** HTML, CSS, JavaScript
 
 ## Setup
 To run these projects, clone this repository:
