@@ -10,16 +10,16 @@ html {
     width: 700px;
     height: 340px;
     border: 2px solid black;
-    background-image: url('backgroud.jpg');
+    background-image: url('./images/backgroud.jpg');
 }
 
 #character {
-    width: 90px;
-    height: 90px;
-    background-image: url("dino.png");
+    width: 53px;
+    height: 40px;
+    background-image: url("./images/dino.png");
     position: relative;
-    top: 240px;
-    left: 600px;
+    top: 260px;
+    left: 500px;
 }
 
 .animation {
@@ -27,23 +27,27 @@ html {
 }
 
 #rock {
-    width: 76px;
-    height: 60px;
-    background-image: url("rock.png");
+    width: 61px;
+    height: 48px;
+    background-image: url("./images/rock.png");
     position: relative;
-    top: 160px;
+    top: 220px;
     left: 40px;
-    animation: r 1s;
+    animation: r 2s infinite;
+}
+
+#btn {
+    display: none;
 }
 
 @keyframes r {
     0% { left: 40px; }
-    100% { left: 600px; }
+    100% { left: 630px; }
 }
 
 @keyframes d {
-    0% { top: 240px; }
-    30% { top: 180px; }
-    60% { top: 180px; }
-    100% { top: 240px; }
+    0% { top: 260px; }
+    30% { top: 200px; }
+    60% { top: 200px; }
+    100% { top: 260px; }
 }
